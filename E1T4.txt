@@ -1,0 +1,7 @@
+Based on the architecture diagram, and the steps you have taken so far to upload data and access the application web service, identify at least 2 obvious poor practices as it relates to security.  Include justification.
+
+# Poor practice 1
+The security Group WebAppSG is wide open as it allows for all ingress  traffic on all ports from anywhere.It means that the surface attack area is wide. It should only allow ingress access to the security group AppLoadBalancerSG on port 5000
+
+# Poor practice 2
+The web application instance is accessing the S3 bucket via public internet. It exposes the traffic to sniffing, also the S3 bucket S3BucketRecipesFree can be accessed publicly. The mitigation will be to use VPC endpoint for S3. The web application instance will access the S3 bucket via internal AWS network and not via exposed public network.

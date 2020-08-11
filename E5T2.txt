@@ -1,0 +1,20 @@
+# Identify tools that will allow you to do the following:
+
+## Scan infrastructure as code templates
+
+Regula Tool can scan infrastructure as code templates
+
+### Example vulnerability
+
+Misconfigured security groups with wide open ports
+
+##Scan AMI’s or containers for OS vulnerabilities
+Prisma Tool
+### Example vulnerability
+
+Docker runc vulnerability (CVE-2019-5736)
+
+##Scan an AWS environment for cloud configuration vulnerabilities
+AWS Config
+### Example vulnerability
+Old, unrotated access keys

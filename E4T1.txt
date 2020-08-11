@@ -1,0 +1,14 @@
+# Identify 2-3 changes that can be made to our environment to prevent an ssh brute force attack from the internet.
+
+1. The security group WebAppSG assigned to the Web application server should only allow ingress access to the security group AppLoadBalancerSG on port 5000.
+2. The Rule which allows "All ingress Traffic on all ports from all IPs from the security group WebAppSG.
+3. If direct SSH is needed, the ingress on port 22 should only be allowed from a defined set of known IPs.
+4. A bastion host can be created with restricited source and target IPs for SSH access to the private subnet.
+4. The Web app instance can be moved to the private subnet and a NAT gateway can be added to the architecture in the public subnet.
+
+
+# Neither instance should have had access to the secret recipes bucket, in the even that instance API credentials were compromised how could we have prevented access to sensitive data.
+
+The API credentials should not be stored on the EC2 instance. An instance profile role can be created with S3  access only to the free recipes bucket and assigned to the web application EC2 instance. Also encryption should have been enabled on the secret recipes bucket. Even if the attacker is able to access and download the secret recipes file, he will not be able to read its content.
+
+

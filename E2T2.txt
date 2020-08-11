@@ -1,0 +1,8 @@
+#Research and analyze which of the vulnerabilities appear to be related to the code that was deployed for the environment in this project.
+
+All the vulnerabilities are due to the security group WebAppSG which is wide open. All known protocol wih the well known ports are open and can be used by attacker to access the EC2 web application server. The high severity vulnerabilities are mainly due to FTP and Telnet access on ports 20,21,23
+
+
+#Bonus - provide recommendations on how to remediate the vulnerabilities.
+
+To remediate the vulnerabilities, the security group assigned to the Web application server should only allow ingress access to the security group AppLoadBalancerSG on port 5000.
